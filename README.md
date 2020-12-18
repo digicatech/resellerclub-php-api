@@ -16,7 +16,7 @@ composer require digicatech/resellerclub-php-api
 
 ## Usage Example
 ```php
-use habil\ResellerClub\ResellerClub;
+use alantescili\ResellerClub\ResellerClub;
 
 $resellerClub = new ResellerClub('<userId>', '<apiKey>');
 $resellerClub->domains()->available(['google', 'example'], ['com', 'net']);
