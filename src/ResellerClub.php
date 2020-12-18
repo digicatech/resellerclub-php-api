@@ -87,7 +87,7 @@ class ResellerClub
     private function _getAPI($api)
     {
         if (empty($this->apiList[$api])) {
-            $class = 'habil\\ResellerClub\\APIs\\'.$api;
+            $class = 'digicatech\\ResellerClub\\APIs\\'.$api;
             $this->apiList[$api] = new $class(
                 $this->guzzle,
                 $this->authentication
