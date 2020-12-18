@@ -1,0 +1,30 @@
+{
+    "name": "digicatech/resellerclub-php-api",
+    "description": "PHP SDK for ResellerClub API",
+    "type": "library",
+    "license": "MIT",
+	"authors": [
+		{
+		  "name": "Digicatech OÜ",
+		  "email": "info@digicatech.com"
+		},
+		{
+		  "name": "Digicatech TR",
+		  "email": "info@digicatech.com.tr"
+		}
+	],
+    "require": {
+		"ext-curl": "*",
+		"guzzlehttp/guzzle": "~6",
+		"ext-simplexml": "*",
+		"ext-json": "*"
+	},
+	"autoload": {
+		"psr-4": {
+			"digicatech\\ResellerClub\\": "src/"
+		}
+    },
+	"config": {
+		"bin-dir": "bin"
+	}
+}
