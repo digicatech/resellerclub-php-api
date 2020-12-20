@@ -70,6 +70,23 @@ class Customers
 
 
     /**
+     * Generates a forgot password email and sends it to the customer's email address.
+     *
+     * @param string $username
+     * @param string $password
+     *
+     * @return array|Exception
+     * @throws Exception
+     * @link https://resellerclub.webpropanel.com/kb/customer-forgot-password-api
+     */
+    public function forgotPassword($username)
+    {
+        return $this->get('forgot-password', ['username' => $username]);
+    }
+
+
+
+    /**
      * Authenticates the Customer and returns the Customer details, if authenticated.
      *
      * @param string $username
