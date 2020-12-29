@@ -24,9 +24,22 @@ class Products
      * @link https://manage.logicboxes.com/kb/node/864
      * @todo Add optional parameters
      */
-    public function customerPrice()
+    public function customerPrice($cusomerid = "")
     {
-        return $this->get('customer-price');
+        return $this->get('customer-price' , ['customer-id' => $cusomerid]);
+    }
+
+    /**
+     * Gets the details of the all active product plans of the Reseller.
+     *
+     * @return array|Exception
+     * @throws Exception
+     * @link https://resellerclub.webpropanel.com/kb/get-product-plan-details-api
+     * @todo Add optional parameters
+     */
+    public function planDetails($productKey = "")
+    {
+        return $this->get('plan-details', ['product-key' => $productKey]);
     }
 
     /**
