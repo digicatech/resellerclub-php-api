@@ -4,10 +4,14 @@ This client is used to interact with one of the following APIs:
  
 Available API requests: 
 * Actions
+* Billing
 * Contacts
 * Customers
+* Dns
 * Domains
+* Orders
 * Products
+
 
 ## Installation
 ```console
