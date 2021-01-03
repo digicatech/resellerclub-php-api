@@ -10,6 +10,7 @@ use digicatech\ResellerClub\APIs\Customers;
 use digicatech\ResellerClub\APIs\Domains;
 use digicatech\ResellerClub\APIs\Orders;
 use digicatech\ResellerClub\APIs\Products;
+use digicatech\ResellerClub\APIs\Dns;
 
 /**
  * Class ResellerClub
@@ -143,6 +144,15 @@ class ResellerClub
     public function billing()
     {
         return $this->_getAPI('Billing');
+    }
+
+
+     /**
+     * @return Dns
+     */
+    public function dns()
+    {
+        return $this->_getAPI('Dns');
     }
 
     /**
