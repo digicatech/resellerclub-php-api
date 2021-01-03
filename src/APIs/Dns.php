@@ -18,6 +18,30 @@ class Dns
      * @var string
      */
     protected $api = 'dns';
+    
+    
+    
+     /**
+     * Activates the DNS service.
+     *
+     * @param int $orderid
+
+     *
+     * 
+     * @return array|Exception
+     * @throws Exception
+     * @link https://resellerclub.webpropanel.com/kb/activating-the-dns-service-api
+     */
+    public function activateDns($orderid)
+    {
+        return $this->get(
+            'activate',
+            [
+                'order-id'   => $orderid 
+            ]
+        );
+    }
+
 
     /**
      * Searching DNS Records
