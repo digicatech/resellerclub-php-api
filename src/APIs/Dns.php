@@ -48,6 +48,34 @@ class Dns
             ]
         );
     }
+    
+    /**
+     * Adds a Canonical (CNAME) record.
+     *
+     * @param String $domainName
+     * @param String $value
+     * @param String $host
+     * @param int $ttl
+     *
+     * 
+     * @return array|Exception
+     * @throws Exception
+     * @link https://resellerclub.webpropanel.com/kb/adding-cname-record-api
+     */
+    public function addCnameRecord($domainName , $value , $host ="" , $ttl = 14400)
+    {
+        return $this->get(
+            'manage/add-cname-record',
+            [
+                'domain-name'   => $domainName ,
+                'value'         => $value,
+                'host'          => $host,
+                'ttl'           => $ttl
+
+            ]
+        );
+    }
+
 
     
 }
