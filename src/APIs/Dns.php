@@ -253,34 +253,7 @@ class Dns
     }
 
 
-    /**
-     * Modifies an IPv4 Address (A) record.
-     *
-     * @param String $domainName
-     * @param String $currentValue
-     * @param String $host
-     * @param String $newValue
-     * @param int $ttl
-     *
-     * 
-     * @return array|Exception
-     * @throws Exception
-     * @link https://resellerclub.webpropanel.com/kb/modifying-ipv4-address-record-api
-     */
-    public function updateIpv4Record($domainName , $currentValue , $newValue , $host ="" , $ttl = 14400)
-    {
-        return $this->get(
-            'manage/update-ipv4-record',
-            [
-                'domain-name'   => $domainName ,
-                'host'          => $host,
-                'current-value' => $currentValue,
-                'new-value'     => $newValue,
-                'ttl'           => $ttl
-
-            ]
-        );
-    }
+    
 
 
 
@@ -323,6 +296,37 @@ class Dns
      * Modify Functions
      * ===========================
      */
+    
+    
+    
+    /**
+     * Modifies an IPv4 Address (A) record.
+     *
+     * @param String $domainName
+     * @param String $currentValue
+     * @param String $host
+     * @param String $newValue
+     * @param int $ttl
+     *
+     * 
+     * @return array|Exception
+     * @throws Exception
+     * @link https://resellerclub.webpropanel.com/kb/modifying-ipv4-address-record-api
+     */
+    public function updateIpv4Record($domainName , $currentValue , $newValue , $host ="" , $ttl = 14400)
+    {
+        return $this->get(
+            'manage/update-ipv4-record',
+            [
+                'domain-name'   => $domainName ,
+                'host'          => $host,
+                'current-value' => $currentValue,
+                'new-value'     => $newValue,
+                'ttl'           => $ttl
+
+            ]
+        );
+    }
 
     /**
      * Modifies an IPv6 (AAAA) record.
