@@ -571,14 +571,14 @@ class Dns
      * @throws Exception
      * @link https://resellerclub.webpropanel.com/kb/deleting-ipv4-address-record-api
      */
-    public function deleteIpv4Record($domainName , $value , $host)
+    public function deleteIpv4Record($domainName , $host , $value)
     {
         return $this->get(
             'manage/delete-ipv4-record',
             [
                 'domain-name'   => $domainName ,
                 'host'          => $host,
-                'value' => $value
+                'value'         => $value
             ]
         );
     }
@@ -596,14 +596,14 @@ class Dns
      * @throws Exception
      * @link https://resellerclub.webpropanel.com/kb/deleting-ipv6-address-record-api
      */
-    public function deleteIpv6Record($domainName , $value , $host)
+    public function deleteIpv6Record($domainName , $host , $value)
     {
         return $this->get(
             'manage/delete-ipv6-record',
             [
                 'domain-name'   => $domainName ,
                 'host'          => $host,
-                'value' => $value
+                'value'         => $value
             ]
         );
     }
@@ -622,14 +622,14 @@ class Dns
      * @throws Exception
      * @link https://resellerclub.webpropanel.com/kb/deleting-cname-record-api
      */
-    public function deleteCnameRecord($domainName , $value , $host)
+    public function deleteCnameRecord($domainName , $host , $value)
     {
         return $this->get(
             'manage/delete-cname-record',
             [
                 'domain-name'   => $domainName ,
                 'host'          => $host,
-                'value' => $value
+                'value'         => $value
             ]
         );
     }
@@ -647,14 +647,14 @@ class Dns
      * @throws Exception
      * @link https://resellerclub.webpropanel.com/kb/deleting-ns-record-api
      */
-    public function deleteNsRecord($domainName , $value , $host)
+    public function deleteNsRecord($domainName , $host , $value)
     {
         return $this->get(
             'manage/delete-ns-record',
             [
                 'domain-name'   => $domainName ,
                 'host'          => $host,
-                'value' => $value
+                'value'         => $value
             ]
         );
     }
@@ -672,18 +672,45 @@ class Dns
      * @throws Exception
      * @link https://resellerclub.webpropanel.com/kb/deleting-txt-record-api
      */
-    public function deleteTxtRecord($domainName , $value , $host)
+    public function deleteTxtRecord($domainName , $host , $value)
     {
         return $this->get(
             'manage/delete-txt-record',
             [
                 'domain-name'   => $domainName ,
                 'host'          => $host,
-                'value' => $value
+                'value'         => $value
             ]
         );
     }
-
+    
+    
+    
+    /**
+     * Deletes a Text (MX) record.
+     *
+     * @param String $domainName
+     * @param String $value
+     * @param String $host
+     *
+     * 
+     * @return array|Exception
+     * @throws Exception
+     * @link https://resellerclub.webpropanel.com/kb/deleting-mx-record-api
+     */
+    public function deleteMxRecord($domainName , $host , $value)
+    {
+        return $this->get(
+            'manage/delete-txt-record',
+            [
+                'domain-name'   => $domainName ,
+                'host'          => $host,
+                'value'         => $value
+            ]
+        );
+    }
+    
+    
 
 
 
