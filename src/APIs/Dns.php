@@ -534,14 +534,12 @@ class Dns
         return $this->get(
             'manage/update-soa-record',
             [
-                'domain-name'   => $domainName ,
-                'current-value' => $currentValue,
-                'new-value'     => $newValue,
-                'host'          => $host,
-                'ttl'           => $ttl,
-                'priority'      => $priority,
-                'port'          => $port,
-                'weight'        => $weight
+                'domain-name'           => $domainName ,
+                'responsible-person'    => $responsiblePerson,
+                'refresh'               => $refresh,
+                'retry'                 => $retry,
+                'expire'                => $expire,
+                'ttl'                   => $ttl
             ]
         );
     }
