@@ -353,4 +353,45 @@ class Contacts
             ['contact-id' => $contactId, 'eligibility-criteria' => $check]
         );
     }
+    
+    
+    
+    
+    
+    
+    /**
+     * Sets a default contact for the Customer.
+     * @param int $customerId
+     * @param array $type
+     * @param int $regContactId
+     * @param int $adminContactId
+     * @param int $techContactId
+     * @param int $billContactId
+     *
+     * @return array|Exception
+     * @throws Exception
+     * @link https://resellerclub.webpropanel.com/kb/setting-default-contact-api
+     */
+    public function setDefaultContact(
+        $customerId,
+        $type,
+        $regContactId,
+        $adminContactId,
+        $techContactId,
+        $billContactId
+    ) {
+        return $this->post(
+            'modDefault',
+            [
+                'customer-id'           => $customerId,
+                'type'                  => $name,
+                'reg-contact-id'        => $company,
+                'admin-contact-id'      => $email,
+                'tech-contact-id'       => $address1,
+                'billing-contact-id'    => $city
+            ]
+        );
+    }
+    
+    
 }
