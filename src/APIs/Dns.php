@@ -727,7 +727,7 @@ class Dns
      * @throws Exception
      * @link https://resellerclub.webpropanel.com/kb/deleting-txt-record-api
      */
-    public function deleteSrvRecord($domainName , $value , $host , $port ,$weight)
+    public function deleteSrvRecord($domainName , $host, $value , $port ,$weight)
     {
         return $this->get(
             'manage/delete-srv-record',
