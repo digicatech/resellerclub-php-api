@@ -17,7 +17,7 @@ Available API requests:
 ```console
 composer require digicatech/resellerclub-php-api
 ```
-OR
+OR GITHUB REPOSITORY
 
 `composer.json`:
 ```
@@ -31,6 +31,24 @@ OR
     "digicatech/resellerclub-php-api": "dev-main"
   }
   ```
+
+
+OR LOCAL PATH
+
+`composer.json`:
+```
+"repositories": [
+        {
+            "type": "path",
+            "url":  "resellerclub-php-api"
+        }
+],
+"require": {
+        "digicatech/resellerclub-php-api": "dev-main"
+}
+```
+
+
 
 ## Usage Example
 `live mode`:
