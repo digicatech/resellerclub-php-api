@@ -17,6 +17,20 @@ Available API requests:
 ```console
 composer require digicatech/resellerclub-php-api
 ```
+or
+
+`composer.json`:
+```
+"repositories": [
+      {
+          "type": "vcs",
+          "url":  "https://github.com/afbora/resellerclub-php-sdk.git"
+      }
+  ],
+  "require": {
+    "afbora/resellerclub-php-sdk": "dev-master"
+  }
+  ```
 
 ## Usage Example
 ```php
