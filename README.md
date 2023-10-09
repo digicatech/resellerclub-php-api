@@ -33,6 +33,7 @@ or
   ```
 
 ## Usage Example
+'live mode':
 ```php
 use digicatech\ResellerClub\ResellerClub;
 
