@@ -24,7 +24,7 @@ or
 "repositories": [
       {
           "type": "vcs",
-          "url":  "https://github.com/afbora/resellerclub-php-sdk.git"
+          "url":  "https://github.com/digicatech/resellerclub-php-api"
       }
   ],
   "require": {
