@@ -17,7 +17,7 @@ Available API requests:
 ```console
 composer require digicatech/resellerclub-php-api
 ```
-or
+OR
 
 `composer.json`:
 ```
@@ -33,11 +33,20 @@ or
   ```
 
 ## Usage Example
-'live mode':
+`live mode`:
 ```php
 use digicatech\ResellerClub\ResellerClub;
 
 $resellerClub = new ResellerClub('<userId>', '<apiKey>');
+$resellerClub->domains()->available(['google', 'example'], ['com', 'net']);
+```
+
+
+`test mode`:
+```php
+use digicatech\ResellerClub\ResellerClub;
+
+$resellerClub = new ResellerClub('<userId>', '<apiKey>',true);
 $resellerClub->domains()->available(['google', 'example'], ['com', 'net']);
 ```
 Note: All functions return a raw response from API.
