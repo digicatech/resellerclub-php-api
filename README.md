@@ -28,7 +28,7 @@ OR
       }
   ],
   "require": {
-    "digicatech/resellerclub-php-api": "dev-master"
+    "digicatech/resellerclub-php-api": "dev-main"
   }
   ```
 
