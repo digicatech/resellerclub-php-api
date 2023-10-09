@@ -28,7 +28,7 @@ or
       }
   ],
   "require": {
-    "afbora/resellerclub-php-sdk": "dev-master"
+    "digicatech/resellerclub-php-api": "dev-master"
   }
   ```
 
