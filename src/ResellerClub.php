@@ -11,6 +11,7 @@ use digicatech\ResellerClub\APIs\Domains;
 use digicatech\ResellerClub\APIs\Orders;
 use digicatech\ResellerClub\APIs\Products;
 use digicatech\ResellerClub\APIs\Dns;
+use digicatech\ResellerClub\APIs\Sslcert;
 
 /**
  * Class ResellerClub
@@ -161,5 +162,13 @@ class ResellerClub
     public function actions()
     {
         return $this->_getAPI('Actions');
+    }
+
+    /**
+     * @return Sslcert
+     */
+    public function sslcert()
+    {
+        return $this->_getAPI('Sslcert');
     }
 }
