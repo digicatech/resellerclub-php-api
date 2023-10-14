@@ -49,7 +49,6 @@ class Products
      * @return array|Exception
      * @throws Exception
      * @link https://manage.resellerclub.com/kb/answer/862
-     * @todo Add optional parameters
      */
     public function categoryKeysMapping()
     {
@@ -80,8 +79,5 @@ class Products
         );
     }
 
-
-
-    category-keys-mapping
 
 }
