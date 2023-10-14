@@ -42,6 +42,21 @@ class Products
         return $this->get('plan-details', ['product-key' => $productKey]);
     }
 
+
+    /**
+     * Gets the mapping of product category to product keys.
+     *
+     * @return array|Exception
+     * @throws Exception
+     * @link https://manage.resellerclub.com/kb/answer/862
+     * @todo Add optional parameters
+     */
+    public function categoryKeysMapping()
+    {
+        return $this->get('category-keys-mapping', []);
+    }
+
+
     /**
      * @param string $domainName
      * @param int $existingCustomerId
@@ -64,4 +79,9 @@ class Products
             ]
         );
     }
+
+
+
+    category-keys-mapping
+
 }
