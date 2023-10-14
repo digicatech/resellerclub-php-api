@@ -109,7 +109,7 @@ class Customers
      * @param string $username
      * @param string $password
      *
-     * @return array|Exception
+     * @return string|Exception
      * @throws Exception
      * @link https://resellerclub.webpropanel.com/kb/generate-customer-token-api
      */
@@ -118,6 +118,26 @@ class Customers
         return $this->get('generate-token', ['username' => $username , 'passwd' => $password ,'ip' => $ip]);
     }
 
+
+     /**
+     * Returns an authentication token for a Customer.
+     * You can login to the Customer's Control Panel using the generated token. The Control panel can be accessed at following link, where XXXXX is the generated token.
+     * http://manage.resellerclub.com/servlet/AutoLoginServlet?userLoginId=XXXXX&role=customer 
+     * 
+     * @param string $customerId
+     * @param string $ip
+     * 
+     * @return string|Exception
+     * @throws Exception
+     * @link https://manage.resellerclub.com/kb/answer/2942
+     */
+    public function generateLoginToken($customerId , $ip)
+    {
+        return $this->get('generate-login-token', [
+            'customer-id' => $customerId,
+            'ip' => $ip
+        ]);
+    }
 
     
     /**
@@ -134,12 +154,23 @@ class Customers
         return $this->get('authenticate-token', ['token' => $token]);
     }
 
+    /**
+     * Authenticates the token provided by the system while redirecting a Customer to your custom URL and returns the Customer details, if authenticated.
+     *
+     * @param string $token
+     *
+     * @return array|Exception
+     * @throws Exception
+     * @link https://resellerclub.webpropanel.com/kb/authenticate-customer-token-api
+     */
+    public function authenticateTokenWithoutHistory($authUserId , $apiKey ,$token)
+    {
+        return $this->get('authenticate-token-without-history', [ 
+            'token' => $token]);
+    }
 
 
-
-
-
-
+    
     /**
      * Modifies the Account details of the specified Customer.
      *

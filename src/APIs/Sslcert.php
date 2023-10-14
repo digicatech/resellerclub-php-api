@@ -64,11 +64,9 @@ class Sslcert
      * @link https://resellerclub.webpropanel.com/kb/ssl-certificates-enroll-api
      *
      */
-    public function enroll($authUserId, $apiKey, $orderId, $csr, $verificationMethod, $verificationEmail, $dba = "", $address = "", $zip = "", $countryOfIncorporation, $appRepEmail)
+    public function enroll($orderId, $csr, $verificationMethod, $verificationEmail, $dba = "", $address = "", $zip = "", $countryOfIncorporation, $appRepEmail)
     {
         return $this->post('enroll', [
-            'auth-userid' => $authUserId,
-            'api-key' => $apiKey,
             'order-id' => $orderId,
             'csr' => $csr,
             'verification-method' => $verificationMethod,
@@ -83,9 +81,7 @@ class Sslcert
 
     /**
      * Reissues an existing SSL Certificate.
-     *
-     * @param int       $authUserId
-     * @param string    $apiKey
+     * 
      * @param int       $orderId
      * @param string    $csr
      * @param string    $verificationMethod Available options [email, cname, http]
@@ -98,11 +94,9 @@ class Sslcert
      * @link https://resellerclub.webpropanel.com/kb/ssl-certificates-reissue-api
      *
      */
-    public function reissue($authUserId, $apiKey, $orderId, $csr, $verificationMethod, $verificationEmail, $address = "", $zip = "")
+    public function reissue($orderId, $csr, $verificationMethod, $verificationEmail, $address = "", $zip = "")
     {
         return $this->post('reissue', [
-            'auth-userid' => $authUserId,
-            'api-key' => $apiKey,
             'order-id' => $orderId,
             'csr' => $csr,
             'verification-method' => $verificationMethod,
@@ -116,8 +110,6 @@ class Sslcert
     /**
      * Renews an existing SSL Certificate order.
      *
-     * @param int       $authUserId
-     * @param string    $apiKey
      * @param int       $orderId
      * @param int       $months
      * @param string  $invoiceoption Available options [NoInvoice, PayInvoice, KeepInvoice, OnlyAdd]
@@ -127,11 +119,9 @@ class Sslcert
      * @link https://resellerclub.webpropanel.com/kb/ssl-certificates-renew-api
      *
      */
-    public function renew($authUserId, $apiKey, $orderId, $months, $invoiceoption)
+    public function renew( $orderId, $months, $invoiceoption)
     {
         return $this->post('renew', [
-            'auth-userid' => $authUserId,
-            'api-key' => $apiKey,
             'order-id' => $orderId,
             'months' => $months,
             'invoice-option' => $invoiceoption
@@ -140,9 +130,7 @@ class Sslcert
 
     /**
      * Deletes the specified SSL Certificate order.
-     *
-     * @param int       $authUserId
-     * @param string    $apiKey
+     * 
      * @param int       $orderId
      * 
      * @return array|Exception
@@ -150,11 +138,9 @@ class Sslcert
      * @link https://resellerclub.webpropanel.com/kb/ssl-certificates-delete-api
      *
      */
-    public function delete($authUserId, $apiKey, $orderId)
+    public function delete( $orderId)
     {
         return $this->post('delete', [
-            'auth-userid' => $authUserId,
-            'api-key' => $apiKey,
             'order-id' => $orderId
         ]);
     }
@@ -169,9 +155,7 @@ class Sslcert
 
     /**
      * Returns the SSL Certificate order id associated with the Domain Name.
-     *
-     * @param int       $authUserId
-     * @param string    $apiKey
+     * 
      * @param int       $orderId
      * 
      * @return array|Exception
@@ -179,11 +163,9 @@ class Sslcert
      * @link https://resellerclub.webpropanel.com/kb/ssl-certificates-get-order-id-api
      *
      */
-    public function getOrderId($authUserId, $apiKey, $orderId)
+    public function getOrderId( $orderId)
     {
         return $this->get('orderid', [
-            'auth-userid' => $authUserId,
-            'api-key' => $apiKey,
             'order-id' => $orderId
         ]);
     }
@@ -191,9 +173,7 @@ class Sslcert
 
     /**
      * Gets details of the specified SSL Certificate order.
-     *
-     * @param int       $authUserId
-     * @param string    $apiKey
+     * 
      * @param int       $orderId
      * 
      * @return array|Exception
@@ -201,20 +181,16 @@ class Sslcert
      * @link https://resellerclub.webpropanel.com/kb/ssl-certificates-get-details-api
      *
      */
-    public function getDetails($authUserId, $apiKey, $orderId)
+    public function getDetails($orderId)
     {
         return $this->get('details', [
-            'auth-userid' => $authUserId,
-            'api-key' => $apiKey,
             'order-id' => $orderId
         ]);
     }
 
     /**
      * Gets details of the specified SSL Certificate order.
-     *
-     * @param int       $authUserId
-     * @param string    $apiKey
+     * 
      * @param int       $orderId
      * @param string    $newVerificationEmail
      * 
@@ -223,11 +199,9 @@ class Sslcert
      * @link https://resellerclub.webpropanel.com/kb/ssl-certificates-change-verification-email-api
      *
      */
-    public function changeVerificationEmail($authUserId, $apiKey, $orderId, $newVerificationEmail)
+    public function changeVerificationEmail($orderId, $newVerificationEmail)
     {
         return $this->post('change-verification-email', [
-            'auth-userid' => $authUserId,
-            'api-key' => $apiKey,
             'order-id' => $orderId,
             'new-verification-email' => $newVerificationEmail
         ]);
@@ -235,9 +209,7 @@ class Sslcert
 
     /**
      * Gets details of the specified SSL Certificate.
-     *
-     * @param int       $authUserId
-     * @param string    $apiKey
+     * 
      * @param int       $orderId
      * 
      * @return array|Exception
@@ -245,11 +217,9 @@ class Sslcert
      * @link https://resellerclub.webpropanel.com/kb/ssl-certificates-get-certificate-details-api
      *
      */
-    public function getCertificateDetails($authUserId, $apiKey, $orderId)
+    public function getCertificateDetails($orderId)
     {
         return $this->get('get-cert-details', [
-            'auth-userid' => $authUserId,
-            'api-key' => $apiKey,
             'order-id' => $orderId
         ]);
     }
@@ -257,8 +227,6 @@ class Sslcert
     /**
      * Changes the verification method
      *
-     * @param int       $authUserId
-     * @param string    $apiKey
      * @param int       $orderId
      * @param string    $verificationEmail
      * @param string    $verificationMethod Available options [email, cname, http]
@@ -268,11 +236,9 @@ class Sslcert
      * @link https://resellerclub.webpropanel.com/kb/ssl-certificates-change-verification-method
      *
      */
-    public function changeVerificationMethod($authUserId, $apiKey, $orderId, $newVerificationEmail, $verificationMethod)
+    public function changeVerificationMethod($orderId, $newVerificationEmail, $verificationMethod)
     {
         return $this->post('change-verification-method', [
-            'auth-userid' => $authUserId,
-            'api-key' => $apiKey,
             'order-id' => $orderId,
             'verification-email' => $newVerificationEmail,
             'verification-method' => $verificationMethod
@@ -282,8 +248,6 @@ class Sslcert
      /**
      * Validates the CSR for a domain name.
      *
-     * @param int       $authUserId
-     * @param string    $apiKey
      * @param int       $orderId
      * @param string    $csr
      * @param string    $domainname 
@@ -293,11 +257,9 @@ class Sslcert
      * @link https://resellerclub.webpropanel.com/kb/ssl-certificates-validate-csr
      *
      */
-    public function validateCSR($authUserId, $apiKey, $orderId, $csr, $domainname)
+    public function validateCSR($orderId, $csr, $domainname)
     {
         return $this->post('validate-csr', [
-            'auth-userid' => $authUserId,
-            'api-key' => $apiKey,
             'order-id' => $orderId,
             'csr' => $csr,
             'domainname' => $domainname
