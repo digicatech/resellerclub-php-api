@@ -11,6 +11,7 @@ Available API requests:
 * Domains
 * Orders
 * Products
+* Sslcert
 
 
 ## Installation
