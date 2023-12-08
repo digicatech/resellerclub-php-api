@@ -93,4 +93,47 @@ class Billing
 
         return $this->get('search', $data, 'customer-transactions/');
     }
+
+
+    /**
+     * Gets the Available Balance of the specified Customer.
+     * 
+     * @param int    $customerId
+     * 
+     * @return array|Exception
+     * @throws Exception
+     * @link https://manage.resellerclub.com/kb/answer/872
+    */
+    public function customerBalance($customerId)
+    {
+        return $this->get('customer-balance', ['customer-id' => $customerId]);
+    }
+
+
+    /**
+     * Adds funds in a Customer's Account.
+     * 
+     * @param int    $customerId Customer Id of the Customer in whose Debit Account these funds are to be added
+     * @param float $amount Amount to be added
+     * @param string $description Description for the Transaction
+     * @param string transaction-type  Type of the Transaction. Possible values can be credit or receipt.
+     * @param string $transaction-key A unique Transaction key
+     * @param boolean $update-total-receipt Possible values are true or false. Pass true if the amount needs to be added to the Total Receipts figure of the Customer.
+     * 
+     * @return array|Exception
+     * @throws Exception
+     * @link https://manage.resellerclub.com/kb/answer/1152
+    */
+    public function addCustomerFund($customerId , $amount , $description,$transactionType,$transactionKey,$updateTotalReceipt = true)
+    {
+        return $this->post('add-customer-fund', 
+            [
+                'customer-id' => $customerId,
+                'amount' => $amount,
+                'description' => $description,
+                'transaction-type' => $transactionType,
+                'transaction-key' => $transactionKey,
+                'update-total-receipt' => $updateTotalReceipt
+            ]);
+    }
 }
