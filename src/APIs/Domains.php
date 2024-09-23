@@ -595,6 +595,8 @@ class Domains
      * @param int $adminContactId
      * @param int $techContactId
      * @param int $billingContactId
+     * @param bool $skipIRTP
+     * @param bool $designatedAgent
      *
      * @return array|Exception
      * @throws Exception
@@ -606,7 +608,8 @@ class Domains
         $adminContactId,
         $techContactId,
         $billingContactId,
-        $skipIRTP = false
+        $skipIRTP = false,
+        $designatedAgent = false
     ) {
         $params = [
             'order-id'           => $orderId,
@@ -614,6 +617,7 @@ class Domains
             'admin-contact-id'   => $adminContactId,
             'tech-contact-id'    => $techContactId,
             'billing-contact-id' => $billingContactId,
+            'designated-agent'   => $designatedAgent ? 'true' : 'false',
         ];
 
         if ($skipIRTP) {
