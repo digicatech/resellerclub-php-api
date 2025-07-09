@@ -341,8 +341,8 @@ class Domains
 
         if (is_bool($purchasePremiumDns)) {
             $params = array_merge(
-                ['purchase-premium-dns' => $purchasePremiumDns ? 'true' : 'false'],
-                $params
+                $params,
+                ['purchase-premium-dns' => $purchasePremiumDns ? 'true' : 'false']
             );
         }
 
