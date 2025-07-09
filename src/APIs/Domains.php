@@ -318,30 +318,35 @@ class Domains
     }
 
     /**
-     * @param int     $orderId
-     * @param int     $years
-     * @param int     $exp
-     * @param boolean $purchasePrivacy
-     * @param string  $invoice Available options [NoInvoice, PayInvoice, KeepInvoice, OnlyAdd]
+     * @param int          $orderId
+     * @param int          $years
+     * @param int          $exp
+     * @param boolean      $purchasePrivacy
+     * @param string       $invoice Available options [NoInvoice, PayInvoice, KeepInvoice, OnlyAdd]
+     * @param boolean|null $purchasePremiumDns
      *
      * @return array|Exception
      * @throws Exception
      * @link https://manage.logicboxes.com/kb/node/746
      */
-    public function renew($orderId, $years, $exp, $purchasePrivacy, $invoice)
+    public function renew($orderId, $years, $exp, $purchasePrivacy, $invoice, $purchasePremiumDns = null)
     {
-        return $this->postArgString(
-            'renew',
-            http_build_query(
-                [
-                    'order-id'         => $orderId,
-                    'years'            => $years,
-                    'exp-date'         => strtotime($exp),
-                    'purchase-privacy' => $purchasePrivacy,
-                    'invoice-option'   => $invoice,
-                ]
-            )
-        );
+        $params = [
+            'order-id'         => $orderId,
+            'years'            => $years,
+            'exp-date'         => strtotime($exp),
+            'purchase-privacy' => $purchasePrivacy,
+            'invoice-option'   => $invoice,
+        ];
+
+        if (is_bool($purchasePremiumDns)) {
+            $params = array_merge(
+                ['purchase-premium-dns' => $purchasePremiumDns ? 'true' : 'false'],
+                $params
+            );
+        }
+
+        return $this->post('renew', $params);
     }
 
     /**
